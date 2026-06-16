@@ -24,8 +24,12 @@ SYSTEM_INSTRUCTION = """\
   dialogueには、そのシーンで話すキャラクターのセリフ・ナレーションを順番に入れること
   (発話者がいないシーンは空配列でよい)。
 
+visual_styleには動画全体で統一するビジュアルスタイルを1つ定義すること。
+アートスタイル・色調・ライティング・質感・画風を具体的な英語で記述すること。
+このスタイルは全シーンのveo_promptの末尾に必ず含めること(コピペではなく自然に組み込む)。
+
 すべて日本語で説明できる部分は日本語、AI生成モデル向けのプロンプト
-(appearance_prompt, veo_prompt, bgm_prompt)は英語で記述してください。
+(appearance_prompt, veo_prompt, bgm_prompt, visual_style.base_prompt)は英語で記述してください。
 """
 
 

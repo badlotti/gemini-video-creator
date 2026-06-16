@@ -46,6 +46,18 @@ class Scene(BaseModel):
     )
 
 
+class VisualStyle(BaseModel):
+    base_prompt: str = Field(
+        description=(
+            "全シーン共通のVeo向け英語スタイル指定。アートスタイル・色調・ライティング・画風・"
+            "カメラレンズ感などを具体的に記述。例: "
+            "'2D anime style, Studio Ghibli inspired, warm muted color palette, "
+            "soft natural lighting, hand-drawn look, consistent character design throughout'"
+        )
+    )
+    description: str = Field(description="スタイルの説明(日本語)")
+
+
 class Music(BaseModel):
     bgm_prompt: str = Field(
         description="Lyria向けの英語の音楽生成プロンプト。ジャンル・楽器・テンポ・雰囲気を具体的に"
@@ -56,6 +68,7 @@ class Music(BaseModel):
 class VideoPlan(BaseModel):
     title: str = Field(description="動画のタイトル")
     synopsis: str = Field(description="全体のあらすじ・コンセプト(日本語)")
+    visual_style: VisualStyle = Field(description="全シーン共通のビジュアルスタイル")
     characters: list[Character] = Field(description="登場キャラクター一覧")
     music: Music = Field(description="動画全体のBGM設定")
     scenes: list[Scene] = Field(description="シーンのリスト(再生順)")

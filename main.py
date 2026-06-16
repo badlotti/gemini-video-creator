@@ -94,15 +94,22 @@ def main() -> int:
     parser.add_argument("--plan-only", action="store_true", help="構成案の生成のみ行う")
     parser.add_argument("--scenes", type=str, default=None,
                         help="生成するシーン番号をカンマ区切りで指定 例: --scenes 1,2")
+    parser.add_argument("--plan-file", type=str, default=None,
+                        help="既存のplan.jsonを指定して構成案生成をスキップ 例: --plan-file output/タイトル/plan.json")
 
     args = parser.parse_args()
 
     client = genai.Client(vertexai=True, project=args.project, location=args.location)
 
-    print("== 1/6 構成案を生成中 ==")
-    plan = generate_plan(client, args.prompt, model=args.plan_model)
-
-    out_dir = Path(args.output) / slugify(plan.title)
+    if args.plan_file:
+        print(f"== 1/6 既存の構成案を読み込み中: {args.plan_file} ==")
+        from src.schema import VideoPlan
+        plan = VideoPlan.model_validate_json(Path(args.plan_file).read_text(encoding="utf-8"))
+        out_dir = Path(args.plan_file).parent
+    else:
+        print("== 1/6 構成案を生成中 ==")
+        plan = generate_plan(client, args.prompt, model=args.plan_model)
+        out_dir = Path(args.output) / slugify(plan.title)
     (out_dir / "characters").mkdir(parents=True, exist_ok=True)
     (out_dir / "scenes").mkdir(parents=True, exist_ok=True)
     (out_dir / "audio").mkdir(parents=True, exist_ok=True)
@@ -140,9 +147,10 @@ def main() -> int:
                 continue
             out_path = out_dir / "scenes" / f"scene_{s.index:02d}.mp4"
             print(f"  - シーン{s.index}: {s.title}")
+            style_suffix = f" {plan.visual_style.base_prompt}" if getattr(plan, "visual_style", None) else ""
             result = generate_scene_video(
                 client,
-                s.veo_prompt,
+                s.veo_prompt + style_suffix,
                 s.duration_seconds,
                 out_path,
                 model=args.video_model,
