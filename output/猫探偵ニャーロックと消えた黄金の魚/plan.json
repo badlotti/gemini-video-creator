@@ -1,0 +1,91 @@
+{
+  "title": "猫探偵ニャーロックと消えた黄金の魚",
+  "synopsis": "夜の港町。高級レストランから伝説の「黄金の魚」が忽然と姿を消した。依頼を受けた名探偵ニャーロック・ホームズは、わずかな手がかりを頼りに、夜の街を駆け巡る。果たして彼は、食いしん坊な犯人を見つけ出し、魚を取り戻すことができるのか？",
+  "characters": [
+    {
+      "name": "ニャーロック・ホームズ",
+      "personality": "冷静沈着で観察眼に優れた猫の探偵。美味しい魚には目がない。",
+      "appearance_prompt": "A cute anthropomorphic cat detective, standing on two legs. He has ginger tabby fur, big green eyes, and long white whiskers. He is wearing a classic brown deerstalker hat and a beige trench coat. The style is a charming and detailed cartoon, like a character from a high-quality animated film.",
+      "voice_name": "Charon",
+      "voice_style": "落ち着いていて、少し気取った知的な話し方。推理を披露するときは早口になる。"
+    },
+    {
+      "name": "ナレーター",
+      "personality": "物語の状況を説明する語り手。",
+      "appearance_prompt": "",
+      "voice_name": "Orus",
+      "voice_style": "落ち着いた中年の男性の声。ドキュメンタリー番組のような信頼感のあるトーン。"
+    }
+  ],
+  "music": {
+    "bgm_prompt": "A mysterious and playful jazz track for a detective animation. Features a walking upright bass, light brush drums, a sneaky piano melody, and a smooth saxophone solo. Film noir mood but with a lighthearted, cat-like mischief. Medium tempo.",
+    "mood": "ミステリアスでありながら、どこかコミカルで遊び心のあるジャズ。探偵が夜の街を捜査する雰囲気にぴったり。"
+  },
+  "scenes": [
+    {
+      "index": 1,
+      "title": "事件の発生",
+      "description": "夜のレストラン前。シェフが頭を抱えている。店の窓から見えるはずの「黄金の魚」が飾られていた台座が空になっている。",
+      "veo_prompt": "A wide shot of a fancy restaurant at night, streetlights casting a warm glow. A human chef in a white uniform stands outside, hands on his head in despair. The camera slowly zooms in on an empty pedestal inside the restaurant window where a prized fish once was. Cinematic, cartoon animation style, dramatic lighting.",
+      "duration_seconds": 8,
+      "dialogue": [
+        {
+          "character": "ナレーター",
+          "text": "港町一番のレストランで事件は起きた。ショーケースから、伝説の『黄金の魚』が忽然と姿を消したのだ。"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "title": "捜査開始",
+      "description": "事件現場に到着したニャーロック・ホームズ。彼は虫眼鏡を取り出し、地面に残された奇妙な手がかりを注意深く観察する。",
+      "veo_prompt": "An anthropomorphic ginger tabby cat detective wearing a brown deerstalker hat and beige trench coat kneels on the cobblestone street. He is examining the ground with a large magnifying glass. Close-up shot of his focused green eyes, then pull back to a medium shot. The scene is at night, under a streetlamp. Detailed cartoon animation style.",
+      "duration_seconds": 8,
+      "dialogue": [
+        {
+          "character": "ニャーロック・ホームズ",
+          "text": "ふむ…これは、ただの足跡じゃない。現場には微かな魚の匂い。犯人はそう遠くへは行っていないはずだ。"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "title": "手がかりを追って",
+      "description": "ニャーロックは、路地裏に点々と続くキラキラ光るものを発見する。それは魚のウロコだった。彼は確信を持って路地の奥へと進む。",
+      "veo_prompt": "Following shot of the ginger cat detective, Nyarlock Holmes, as he purposefully walks down a dark, narrow alleyway. The camera is low to the ground, showing his feet striding past shimmering fish scales scattered on the pavement. He looks determined. Mysterious atmosphere with dramatic shadows. High-quality cartoon animation.",
+      "duration_seconds": 8,
+      "dialogue": [
+        {
+          "character": "ニャーロック・ホームズ",
+          "text": "このウロコ…間違いない！犯人はこの先にいる！"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "title": "犯人との対峙",
+      "description": "路地の先は港だった。月明かりの下、大きな木箱の上で、太ったボス猫が盗まれた「黄金の魚」をまさに食べようとしている。",
+      "veo_prompt": "Low-angle shot of a large, fluffy, black cat sitting triumphantly on a wooden crate at a moonlit harbor. He is holding a large, shining golden fish in his paws, about to take a bite. The small ginger cat detective, Nyarlock, stands in the foreground, pointing a paw at the thief. The mood is a tense but comical confrontation. Cinematic animation style.",
+      "duration_seconds": 8,
+      "dialogue": [
+        {
+          "character": "ニャーロック・ホームズ",
+          "text": "そこまでだ、怪盗ブラッククロー！その黄金の魚、返してもらうぞ！"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "title": "事件解決",
+      "description": "ニャーロックは見事な動きで魚を取り返し、得意げにポーズを決める。彼の後ろでは、犯人のブラッククローが網に捕らえられている。",
+      "veo_prompt": "Slow-motion, heroic shot of the ginger cat detective, Nyarlock Holmes, holding the golden fish. He winks at the camera with a smug smile. In the background, out of focus, the large black cat is comically tangled in a fishing net. The scene is bathed in the soft light of the moon over the harbor. Epic and funny finale. High-quality cartoon animation.",
+      "duration_seconds": 8,
+      "dialogue": [
+        {
+          "character": "ナレーター",
+          "text": "こうして、名探偵ニャーロック・ホームズの活躍により、町の平和と黄金の魚は守られたのであった。また一つ、難事件を解決だ！"
+        }
+      ]
+    }
+  ]
+}
