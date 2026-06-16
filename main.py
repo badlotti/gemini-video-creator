@@ -92,6 +92,8 @@ def main() -> int:
     parser.add_argument("--skip-voice", action="store_true")
     parser.add_argument("--skip-combine", action="store_true")
     parser.add_argument("--plan-only", action="store_true", help="構成案の生成のみ行う")
+    parser.add_argument("--scenes", type=str, default=None,
+                        help="生成するシーン番号をカンマ区切りで指定 例: --scenes 1,2")
 
     args = parser.parse_args()
 
@@ -123,10 +125,19 @@ def main() -> int:
         print("== 2/6 キャラクター画像生成をスキップ ==")
 
     # --- 3. シーン動画 (Veo) ---
+    target_scenes = None
+    if args.scenes:
+        target_scenes = {int(n.strip()) for n in args.scenes.split(",")}
+
     scene_video_paths: list[Path] = []
     if not args.skip_video:
         print("== 3/6 シーン動画を生成中 (Veo) ==")
         for s in plan.scenes:
+            if target_scenes and s.index not in target_scenes:
+                existing = out_dir / "scenes" / f"scene_{s.index:02d}.mp4"
+                if existing.exists():
+                    scene_video_paths.append(existing)
+                continue
             out_path = out_dir / "scenes" / f"scene_{s.index:02d}.mp4"
             print(f"  - シーン{s.index}: {s.title}")
             result = generate_scene_video(
